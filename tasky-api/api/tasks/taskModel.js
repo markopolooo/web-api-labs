@@ -13,6 +13,7 @@ const TaskSchema = new Schema({
 });
 
 const dateValidator = (date) => {
+  if (!date) return true; // allow empty
   return date > new Date();
 }
 TaskSchema.path("deadline").validate(dateValidator);
